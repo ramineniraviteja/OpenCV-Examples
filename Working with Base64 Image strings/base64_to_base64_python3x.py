@@ -23,7 +23,8 @@ with open('xyz.txt') as f:
       cv2.putText(np_array_image, str(randint(0, 9)), (13,60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
       output_frame = "output"+str(i)+".jpg"
    
-      #Convert to numpy array base64      
+      #Convert to numpy array base64
+      im = Image.fromarray(np_array_image.astype("uint8"))
       rawBytes = io.BytesIO()
       im.save(rawBytes, "PNG")
       rawBytes.seek(0)  # return to the start of the file
